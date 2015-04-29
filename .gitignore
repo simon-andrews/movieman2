@@ -55,3 +55,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
