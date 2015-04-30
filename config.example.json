@@ -1,0 +1,4 @@
+{
+  "secret-key": "MAKE-ME-LONG-AND-RANDOM",
+  "tmdb-api-key": "YOUR-API-KEY-FOR-THEMOVIEDB.ORG"
+}
