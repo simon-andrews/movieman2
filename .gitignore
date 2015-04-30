@@ -64,4 +64,4 @@ target/
 *.iws
 
 # MovieMan
-config.json
+config.py
