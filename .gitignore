@@ -62,3 +62,6 @@ target/
 *.iml
 *.ipr
 *.iws
+
+# MovieMan
+config.json
