@@ -15,12 +15,20 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Load config from config.json
+import json
+try:
+    config_file = open('config.json', 'r').read()
+    my_config = json.loads(config_file)
+except IOError:
+    print('Could not open config. Copy "config.example.json" into "config.json" and update the values.')
+    exit()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cte)uq3utr71g*12y)yj=oqyd_9v+zge$j067urln#5b8aafc='
+SECRET_KEY = my_config['secret-key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
