@@ -22,6 +22,7 @@ def setup():
     f.write(config)
     f.close()
 
+
 @task
 def lint():
     """Checks code quality using flake8"""
