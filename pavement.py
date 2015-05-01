@@ -1,4 +1,4 @@
-from paver.easy import *
+from paver.easy import sh, task
 
 
 config = """# replace pass with values you would like to overwrite from DefaultConfig in
