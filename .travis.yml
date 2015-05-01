@@ -1,0 +1,19 @@
+language: python
+python:
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "nightly"
+
+install: "pip install -r requirements.txt"
+
+before_script:
+  - "paver setup"
+
+script:
+  - "python3 manage.py check"
+  - "python3 manage.py test"
+
+matrix:
+  allow_failures:
+    - python: "nightly"
