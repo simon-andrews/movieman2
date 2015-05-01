@@ -25,4 +25,4 @@ def setup():
 @task
 def lint():
     """Checks code quality using flake8"""
-    sh("flake8 --exit-zero *.py */*.py")  # TODO: make this cleaner
+    sh("flake8 --exit-zero .")  # TODO: make this cleaner
