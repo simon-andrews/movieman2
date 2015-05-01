@@ -1,3 +1,4 @@
+import os.path
 from paver.easy import sh, task
 
 
@@ -17,13 +18,16 @@ class Config(DefaultConfig):
 @task
 def setup():
     """Writes a default config to config.py"""
-    print('Writing default config.')
-    f = open('config.py', 'w')
-    f.write(config)
-    f.close()
+    if not os.path.isfile('config.py'):
+        print('Writing default config.')
+        f = open('config.py', 'w')
+        f.write(config)
+        f.close()
+    else:
+        print('Config file already exists, will not overwrite.')
 
 
 @task
 def lint():
     """Checks code quality using flake8"""
-    sh("flake8 --exit-zero .")  # TODO: make this cleaner
+    sh("flake8 --exit-zero .")
