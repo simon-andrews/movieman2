@@ -21,3 +21,8 @@ def setup():
     f = open('config.py', 'w')
     f.write(config)
     f.close()
+
+@task
+def lint():
+    """Checks code quality using flake8"""
+    sh("flake8 --exit-zero *.py */*.py")  # TODO: make this cleaner
