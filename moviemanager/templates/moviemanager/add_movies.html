@@ -1,9 +1,18 @@
 {% extends "layout.html" %}
+{% load humanize %}
 {% block pagetitle %}Add Movies{% endblock %}
 {% block content %}
-    <ul>
     {% for movie in movies %}
-        <li><strong>{{ movie.title }}</strong></li>
+        <div class="row">
+            <div class="two columns">
+                <img src="https://image.tmdb.org/t/p/w185{{ movie.poster_path }}" width="100%">
+            </div>
+            <div class="ten columns">
+                <strong>{{ movie.title }}</strong><br />
+                {{ movie.vote_average }}/10.0 ({{ movie.vote_count }} votes)<br />
+                Release date: {{ movie.release_date|naturalday }}<br />
+                #{{ movie.id|intcomma }}
+            </div>
+        </div>
     {% endfor %}
-    </ul>
 {% endblock %}
