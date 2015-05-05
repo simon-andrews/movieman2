@@ -12,16 +12,16 @@
             <div class="two columns">
                 {% if movie.poster_path %}
                     {% if movie.adult %}
-                        <a href="https://image.tmdb.org/t/p/w396{{ movie.poster_path }}" data-lightbox="adult-movie-cover" data-title="{{ movie.title }}">
-                            <img src="http://i.imgur.com/QyLGEaZ.jpg" width="100%">
+                        <a href="//image.tmdb.org/t/p/w396{{ movie.poster_path }}" data-lightbox="adult-movie-cover" data-title="{{ movie.title }}">
+                            <img src="//i.imgur.com/QyLGEaZ.jpg" width="100%">
                         </a>
                     {% else %}
-                        <a href="https://image.tmdb.org/t/p/w396{{ movie.poster_path }}" data-lightbox="movie-cover" data-title="{{ movie.title }}">
-                            <img src="https://image.tmdb.org/t/p/w185{{ movie.poster_path }}" width="100%">
+                        <a href="//image.tmdb.org/t/p/w396{{ movie.poster_path }}" data-lightbox="movie-cover" data-title="{{ movie.title }}">
+                            <img src="//image.tmdb.org/t/p/w185{{ movie.poster_path }}" width="100%">
                         </a>
                     {% endif %}
                 {% else %}
-                    <img width="100%" src="https://i.imgur.com/oAOmgZs.jpg"> <!-- TODO: Better solution -->
+                    <img width="100%" src="//i.imgur.com/oAOmgZs.jpg"> <!-- TODO: Better solution -->
                 {% endif %}
             </div>
             <div class="ten columns">
