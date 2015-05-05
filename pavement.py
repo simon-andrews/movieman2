@@ -24,10 +24,12 @@ def apply_hooks():
         if os.path.isfile(item):
             print('Applying hook: ' + item)
             shutil.copyfile(item, '../.git/hooks/' + item)
+    make_hooks_executable()
 
 
 @task
 def make_hooks_executable():
+    """Sets git hooks to be executable"""
     os.chdir('.git/hooks')
     for item in os.listdir('.'):
         if os.path.isfile(item):
@@ -44,6 +46,7 @@ def setup():
         f.close()
     else:
         print('Config file already exists, will not overwrite.')
+    apply_hooks()
 
 
 @task
