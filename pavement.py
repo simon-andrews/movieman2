@@ -18,26 +18,27 @@ class Config(DefaultConfig):
 
 @task
 def apply_hooks():
-    """Copies hooks from git_hooks folder into .git/hooks"""
-    os.chdir('git_hooks')
-    for item in os.listdir('.'):
-        if os.path.isfile(item):
-            print('Applying hook: ' + item)
-            shutil.copyfile(item, '../.git/hooks/' + item)
+    copy_hooks()
     make_hooks_executable()
+
+
+@task
+def copy_hooks():
+    """Copies hooks from git_hooks folder into .git/hooks"""
+    for item in os.listdir('git_hooks'):
+        print('Applying hook: ' + item)
+        shutil.copyfile(os.path.join('git_hooks', item), os.path.join('.git/hooks', item))
 
 
 @task
 def make_hooks_executable():
     """Sets git hooks to be executable"""
-    os.chdir('.git/hooks')
-    for item in os.listdir('.'):
-        if os.path.isfile(item):
-            sh("chmod +x " + item)
+    for item in os.listdir('.git/hooks'):
+        sh("chmod +x " + os.path.join('.git/hooks', item))
 
 
 @task
-def setup():
+def write_default_config():
     """Writes a default config to config.py"""
     if not os.path.isfile('config.py'):
         print('Writing default config.')
@@ -46,6 +47,11 @@ def setup():
         f.close()
     else:
         print('Config file already exists, will not overwrite.')
+
+
+@task
+def setup():
+    write_default_config()
     apply_hooks()
 
 
