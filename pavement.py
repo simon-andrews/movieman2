@@ -1,4 +1,5 @@
 import os.path
+import shutil
 from paver.easy import sh, task
 
 
@@ -13,6 +14,24 @@ from default_config import DefaultConfig
 class Config(DefaultConfig):
     pass
 """
+
+
+@task
+def apply_hooks():
+    """Copies hooks from git_hooks folder into .git/hooks"""
+    os.chdir('git_hooks')
+    for item in os.listdir('.'):
+        if os.path.isfile(item):
+            print('Applying hook: ' + item)
+            shutil.copyfile(item, '../.git/hooks/' + item)
+
+
+@task
+def make_hooks_executable():
+    os.chdir('.git/hooks')
+    for item in os.listdir('.'):
+        if os.path.isfile(item):
+            sh("chmod +x " + item)
 
 
 @task
