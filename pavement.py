@@ -30,4 +30,4 @@ def setup():
 @task
 def lint():
     """Checks code quality using flake8"""
-    sh("flake8 --exit-zero .")
+    sh("flake8 --exit-zero --max-line-length=120 .")
