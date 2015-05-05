@@ -12,9 +12,7 @@ before_script:
   - "paver setup"
 
 script:
-  - "paver lint"
-  - "python3 manage.py check"
-  - "python3 manage.py test"
+  - "paver inspect"
 
 matrix:
   allow_failures:

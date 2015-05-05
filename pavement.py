@@ -30,4 +30,24 @@ def setup():
 @task
 def lint():
     """Checks code quality using flake8"""
-    sh("flake8 --exit-zero --max-line-length=120 .")
+    sh("flake8 --max-line-length=120 --max-complexity=10 .")
+
+
+@task
+def run_tests():
+    """Run unit tests"""
+    sh("./manage.py test")
+
+
+@task
+def check_source():
+    """Identify any potential problems with code"""
+    sh("./manage.py check")
+
+
+@task
+def inspect():
+    """Inspects project source for a variety of problems"""
+    lint()
+    check_source()
+    run_tests()
