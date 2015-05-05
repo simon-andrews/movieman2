@@ -10,9 +10,19 @@
     {% for movie in movies %}
         <div class="row">
             <div class="two columns">
-                <a href="https://image.tmdb.org/t/p/w396{{ movie.poster_path }}" data-lightbox="movie-cover" data-title="{{ movie.title }}">
-                    <img src="https://image.tmdb.org/t/p/w185{{ movie.poster_path }}" width="100%">
-                </a>
+                {% if movie.poster_path %}
+                    {% if movie.adult %}
+                        <a href="https://image.tmdb.org/t/p/w396{{ movie.poster_path }}" data-lightbox="adult-movie-cover" data-title="{{ movie.title }}">
+                            <img src="http://i.imgur.com/QyLGEaZ.jpg" width="100%">
+                        </a>
+                    {% else %}
+                        <a href="https://image.tmdb.org/t/p/w396{{ movie.poster_path }}" data-lightbox="movie-cover" data-title="{{ movie.title }}">
+                            <img src="https://image.tmdb.org/t/p/w185{{ movie.poster_path }}" width="100%">
+                        </a>
+                    {% endif %}
+                {% else %}
+                    <img width="100%" src="https://i.imgur.com/oAOmgZs.jpg"> <!-- TODO: Better solution -->
+                {% endif %}
             </div>
             <div class="ten columns">
                 <strong>{{ movie.title }}</strong><br />
