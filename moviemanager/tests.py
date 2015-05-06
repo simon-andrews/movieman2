@@ -78,3 +78,7 @@ class MovieTestCase(TestCase):
                              release_date=datetime.datetime.strptime(movie_data["release_date"], "%Y-%m-%d"),
                              budget=movie_data["budget"], vote_average=movie_data["vote_average"],
                              vote_count=movie_data["vote_count"], original_language=movie_data["original_language"])
+
+    def test_can_create_movie_from_id(self):
+        """Does Movie.add_from_id work?"""
+        Movie.add_from_id(550, User.objects.first())
