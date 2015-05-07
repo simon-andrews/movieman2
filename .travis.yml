@@ -1,19 +1,24 @@
 language: python
+
 python:
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "nightly"
+- '3.2'
+- '3.3'
+- '3.4'
+- nightly
 
 install:
-  - "pip install -r requirements.txt"
+- pip install -r requirements.txt
 
 before_script:
-  - "paver setup"
+- paver setup
 
 script:
-  - "paver inspect"
+- paver inspect
 
 matrix:
   allow_failures:
-    - python: "nightly"
+  - python: nightly
+
+env:
+  global:
+    secure: uI+0MUSsCbTAWlyODiAURJObLDZ1mnLlYQGhDFUW4FGFTIKjbX9aZiNv0J9P0qbQDsO8OrFRuAaa2L2z/09w54g39gsQUW2vBPL/W+6p+twMZl4NHT9vAYrfXRqylCG/gcswOKs2hTlHC3qbp3vBpoCm1nI0rlonyWJZnbEU+ZQ=
