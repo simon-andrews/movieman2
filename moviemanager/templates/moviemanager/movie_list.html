@@ -1,11 +1,9 @@
 {% extends "layout.html" %}
-{% load humanize %}
 {% block headextra %}
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
 <link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
 {% endblock %}
-{% block pagetitle %}Add Movies{% endblock %}
 {% block content %}
     {% for movie in movies %}
         <div class="row">
@@ -25,10 +23,7 @@
                 {% endif %}
             </div>
             <div class="ten columns">
-                <strong>{{ movie.title }}</strong><br />
-                {{ movie.vote_average }}/10.0 ({{ movie.vote_count }} votes)<br />
-                Release date: {{ movie.release_date|naturalday }}<br />
-                #{{ movie.id|intcomma }}
+                {% block movie_info %}{% endblock %}
             </div>
         </div>
     {% endfor %}

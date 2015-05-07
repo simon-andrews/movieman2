@@ -8,4 +8,4 @@ def add_movies(request, movie_title):
     dictionary = {
         "movies": search.results
     }
-    return render_to_response("moviemanager/movie_list.html", dictionary=dictionary)
+    return render_to_response("moviemanager/add_movies.html", dictionary=dictionary)
