@@ -23,8 +23,9 @@ class Movie(models.Model):
     @staticmethod
     def add_from_id(tmdb_id, submitter):
         movie_data = tmdb.Movies(tmdb_id).info()
-        Movie.objects.create(tmdb_id=movie_data["id"], score=10, submitter=submitter, title=movie_data["title"],
-                             tagline=movie_data["tagline"], overview=movie_data["overview"],
-                             release_date=datetime.datetime.strptime(movie_data["release_date"], "%Y-%m-%d"),
-                             budget=movie_data["budget"], vote_average=movie_data["vote_average"],
-                             vote_count=movie_data["vote_count"], original_language=movie_data["original_language"])
+        m = Movie.objects.create(tmdb_id=movie_data["id"], score=10, submitter=submitter, title=movie_data["title"],
+                                 tagline=movie_data["tagline"], overview=movie_data["overview"],
+                                 release_date=datetime.datetime.strptime(movie_data["release_date"], "%Y-%m-%d"),
+                                 budget=movie_data["budget"], vote_average=movie_data["vote_average"],
+                                 vote_count=movie_data["vote_count"], original_language=movie_data["original_language"])
+        m.save()
