@@ -34,7 +34,8 @@ def copy_hooks():
 def make_hooks_executable():
     """Sets git hooks to be executable"""
     for item in os.listdir('.git/hooks'):
-        sh("chmod +x " + os.path.join('.git/hooks', item))
+        if not os.access(os.path.join('.git/hooks', item), os.X_OK):
+            sh("chmod +x " + os.path.join('.git/hooks', item))
 
 
 @task
