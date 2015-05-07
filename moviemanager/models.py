@@ -21,9 +21,8 @@ class Movie(models.Model):
     original_language = models.CharField(max_length=2)
 
     @staticmethod
-    def add_from_id(tmdb_id, submitter, movie_data=None):
-        if movie_data is None:
-            movie_data = tmdb.Movies(tmdb_id).info()
+    def add_from_id(tmdb_id, submitter):
+        movie_data = tmdb.Movies(tmdb_id).info()
         m = Movie.objects.create(tmdb_id=movie_data["id"], score=10, submitter=submitter, title=movie_data["title"],
                                  tagline=movie_data["tagline"], overview=movie_data["overview"],
                                  release_date=datetime.datetime.strptime(movie_data["release_date"], "%Y-%m-%d"),

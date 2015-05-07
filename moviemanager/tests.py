@@ -83,4 +83,4 @@ class MovieTestCase(TestCase):
 
     def test_can_create_movie_from_id(self):
         """Does Movie.add_from_id work?"""
-        Movie.add_from_id(550, User.objects.first(), movie_data=movie_data)
+        Movie.add_from_id(550, User.objects.first())
