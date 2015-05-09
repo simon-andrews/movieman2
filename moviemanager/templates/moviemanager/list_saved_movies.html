@@ -1,0 +1,9 @@
+{% extends "moviemanager/movie_list.html" %}
+{% load humanize %}
+{% block pagetitle %}Add Movies{% endblock %}
+{% block movie_info %}
+    <strong>{{ movie.title }}</strong> <em>{{ movie.score }}</em><br />
+    {{ movie.vote_average }}/10.0 ({{ movie.vote_count }} votes)<br />
+    Release date: {{ movie.release_date|naturalday }}<br />
+    #{{ movie.tmdb_id|intcomma }}
+{% endblock %}
