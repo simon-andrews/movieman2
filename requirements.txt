@@ -1,4 +1,4 @@
-Django>=1.8,<1.9
+Django>=1.8,<1.9  # Django 1.8
 Paver>=1.2  # First version with Python 3 support
-flake8>=2.2.0  # Crashes on Python3.4 sometimes in prior releases
-tmdbsimple
+flake8>=1.2  # First version with Python 3 support
+tmdbsimple  # No version so we always keep up to date with TMDb API changes
