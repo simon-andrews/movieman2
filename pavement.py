@@ -1,20 +1,13 @@
+"""
+pavement.py - Paver Build file
+
+Tasks useful to developers. Nothing that any old casual user would do belongs here.
+"""
+
 import os.path
 import shutil
 
 from paver.easy import sh, task
-
-
-config = """# replace pass with values you would like to overwrite from DefaultConfig in
-# default_config.py. Values you do not explicitly overwrite will be inherited
-# from DefaultConfig. At the very least, you must set secret_key and
-# tmdb_api_key.
-
-from default_config import DefaultConfig
-
-
-class Config(DefaultConfig):
-    pass
-"""
 
 
 @task
@@ -32,29 +25,9 @@ def copy_hooks():
 
 
 @task
-def make_hooks_executable():
-    """Sets git hooks to be executable"""
-    for item in os.listdir('.git/hooks'):
-        if not os.access(os.path.join('.git/hooks', item), os.X_OK):
-            sh("chmod +x " + os.path.join('.git/hooks', item))
-
-
-@task
-def write_default_config():
-    """Writes a default config to config.py"""
-    if not os.path.isfile('config.py'):
-        print('Writing default config.')
-        f = open('config.py', 'w')
-        f.write(config)
-        f.close()
-    else:
-        print('Config file already exists, will not overwrite.')
-
-
-@task
-def setup():
-    write_default_config()
-    apply_hooks()
+def inspect():
+    """Inspects project source"""
+    lint()
 
 
 @task
@@ -64,29 +37,11 @@ def lint():
 
 
 @task
-def run_tests():
-    """Run unit tests"""
-    sh("./manage.py test")
-
-
-@task
-def check_source():
-    """Identify any potential problems with code"""
-    sh("./manage.py check")
-
-
-@task
-def inspect():
-    """Inspects project source for a variety of problems"""
-    lint()
-    check_source()
-    run_tests()
-
-
-@task
-def sort_imports():
-    """Sort imports with isort"""
-    sh("isort -rc .")
+def make_hooks_executable():
+    """Sets git hooks to be executable"""
+    for item in os.listdir('.git/hooks'):
+        if not os.access(os.path.join('.git/hooks', item), os.X_OK):
+            sh("chmod +x " + os.path.join('.git/hooks', item))
 
 
 @task
@@ -94,3 +49,14 @@ def pre_commit():
     """Stuff to run before every commit"""
     sort_imports()
     inspect()
+
+
+@task
+def setup():
+    apply_hooks()
+
+
+@task
+def sort_imports():
+    """Sort imports with isort"""
+    sh("isort -rc .")
