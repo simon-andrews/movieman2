@@ -19,8 +19,7 @@ script:
 
 matrix:
   allow_failures:
-  - python:
-    - 'nightly'
+  - python: 'nightly'
 
 env:
   global:
