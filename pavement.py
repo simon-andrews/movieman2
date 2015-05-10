@@ -81,3 +81,8 @@ def inspect():
     lint()
     check_source()
     run_tests()
+
+
+@task
+def pre_commit():
+    inspect()

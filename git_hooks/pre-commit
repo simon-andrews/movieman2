@@ -1,1 +1,1 @@
-paver inspect
+paver pre_commit
