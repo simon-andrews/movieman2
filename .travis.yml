@@ -12,6 +12,7 @@ install:
 
 script:
 - paver inspect
+- python setup.py sdist
 
 matrix:
   allow_failures:
