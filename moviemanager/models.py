@@ -6,7 +6,7 @@ import datetime
 
 class Movie(models.Model):
     # General
-    tmdb_id = models.IntegerField()
+    tmdb_id = models.IntegerField(unique=True)
     score = models.IntegerField(default=10)  # Every movie starts with a score of ten (may be changed later)
     submitter = models.ForeignKey(User)
 
