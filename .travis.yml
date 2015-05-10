@@ -8,7 +8,7 @@ python:
 
 install:
 - pip install -r requirements.txt
-- pip install flake8>=1.2
+- pip install Paver flake8
 
 script:
 - paver inspect
