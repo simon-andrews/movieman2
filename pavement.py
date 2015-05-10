@@ -85,10 +85,12 @@ def inspect():
 
 @task
 def sort_imports():
+    """Sort imports with isort"""
     sh("isort -rc .")
 
 
 @task
 def pre_commit():
+    """Stuff to run before every commit"""
     sort_imports()
     inspect()
