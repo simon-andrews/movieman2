@@ -1,7 +1,8 @@
+import datetime
+
+import tmdbsimple as tmdb
 from django.contrib.auth.models import User
 from django.db import models
-import tmdbsimple as tmdb
-import datetime
 
 
 class Movie(models.Model):

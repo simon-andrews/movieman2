@@ -13,9 +13,12 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import tmdbsimple
 
 from config import Config
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -106,6 +109,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# TMDB
-import tmdbsimple
 tmdbsimple.API_KEY = Config.tmdb_api_key or os.environ["MM2_TMDB_API_KEY"]

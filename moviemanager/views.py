@@ -1,6 +1,7 @@
-from django.shortcuts import render_to_response
-from .models import Movie
 import tmdbsimple as tmdb
+from django.shortcuts import render_to_response
+
+from .models import Movie
 
 
 def add_movies(request, movie_title):
