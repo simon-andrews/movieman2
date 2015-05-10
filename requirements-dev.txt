@@ -1,0 +1,4 @@
+## requirements-dev.txt - Extra stuff required for developing MM2.
+
+flake8>=1.2  # First version with Python 3 support
+isort  # No changelog as far as I am aware, so just allow any version
