@@ -16,6 +16,14 @@ script:
 - paver test
 - python setup.py sdist
 
+env:
+  global:
+    secure: uI+0MUSsCbTAWlyODiAURJObLDZ1mnLlYQGhDFUW4FGFTIKjbX9aZiNv0J9P0qbQDsO8OrFRuAaa2L2z/09w54g39gsQUW2vBPL/W+6p+twMZl4NHT9vAYrfXRqylCG/gcswOKs2hTlHC3qbp3vBpoCm1nI0rlonyWJZnbEU+ZQ=
+  matrix:
+    - DJANGO="Django>=1.4,<1.5"
+    - DJANGO="Django>=1.7,<1.8"
+    - DJANGO="Django>=1.8,<1.9"
+
 matrix:
   allow_failures:
   - python: 'nightly'
@@ -30,11 +38,5 @@ matrix:
       env: DJANGO="Django>=1.4,<1.5"
     - python: '3.4'
       env: DJANGO="Django>=1.4,<1.5"
-
-env:
-  global:
-    secure: uI+0MUSsCbTAWlyODiAURJObLDZ1mnLlYQGhDFUW4FGFTIKjbX9aZiNv0J9P0qbQDsO8OrFRuAaa2L2z/09w54g39gsQUW2vBPL/W+6p+twMZl4NHT9vAYrfXRqylCG/gcswOKs2hTlHC3qbp3vBpoCm1nI0rlonyWJZnbEU+ZQ=
-  matrix:
-    - DJANGO="Django>=1.4,<1.5
-    - DJANGO="Django>=1.7,<1.8"
-    - DJANGO="Django>=1.8,<1.9"
+    - python: 'nightly'
+      env: DJANGO="Django>=1.4,<1.5"
