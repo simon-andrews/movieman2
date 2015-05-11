@@ -60,3 +60,8 @@ def setup():
 def sort_imports():
     """Sort imports with isort"""
     sh("isort -rc .")
+
+
+@task
+def test():
+    sh("python run_tests.py")
