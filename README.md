@@ -37,4 +37,5 @@ MovieMan makes extensive use of [Paver](https://github.com/paver/paver) for auto
 | `pre_commit` | Task run before every commit. |
 | `setup` | Makes project (almost) ready to roll. You will still need to configure your config.py. |
 | `sort_imports` | Sort Python imports in the entire project. |
+| `test` | Run unit tests. |
 

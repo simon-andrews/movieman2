@@ -14,6 +14,7 @@ install:
 
 script:
 - paver inspect
+- paver test
 - python setup.py sdist
 
 matrix:
