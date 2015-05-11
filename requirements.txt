@@ -1,4 +1,2 @@
-## requirements.txt - Stuff that is required to get a basic MM2 up & running.
-
-Django>=1.8,<1.9  # Django 1.8
-tmdbsimple  # No version so we always keep up to date with TMDb API changes
+Django
+tmdbsimple
