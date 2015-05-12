@@ -5,11 +5,11 @@ import sys
 import django
 import tmdbsimple
 from django.conf import settings
-os.environ['DJANGO_SETTINGS_MODULE'] = 'tests.test_settings'
 from django.test.utils import get_runner
 
 tmdbsimple.API_KEY = os.environ['MM2_TMDB_API_KEY']
 
+os.environ['DJANGO_SETTINGS_MODULE'] = 'tests.test_settings'
 django.setup()
 TestRunner = get_runner(settings)
 test_runner = TestRunner()
