@@ -9,9 +9,9 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name="movieman2",
+    name='movieman2',
     version="0.1",
-    packages=["movieman2"],
+    packages=['movieman2'],
     include_package_data=True,
     license='MIT License',
     description='A Django app for managing, voting on, and picking movies',
