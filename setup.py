@@ -18,5 +18,6 @@ setup(
     long_description=README,
     url='https://github.com/simon-andrews/movieman2',
     author='Simon Andrews',
-    test_suite="run_tests"
+    install_requires=['Django', 'tmdbsimple'],
+    test_suite='run_tests'
 )

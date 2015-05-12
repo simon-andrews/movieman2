@@ -25,3 +25,6 @@ env:
 matrix:
   allow_failures:
   - python: 'nightly'
+  exclude:
+  - python: 'nightly'
+    env: DJANGO="Django>=1.7,<1.8" # http://www.thefourtheye.in/2015/02/python-35-and-django-17s-htmlparseerror.html
