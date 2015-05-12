@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% load humanize %}
+{% block pagetitle %}Movie :: {{ movie.title }}{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="three columns">
+            {% if movie.poster_path %}
+                <img src="//image.tmdb.org/t/p/w396{{ movie.poster_path }}" width="100%">
+            {% else %}
+                <img src="//i.imgur.com/oAOmgZs.jpg" width="100%"> <!-- TODO: Better solution -->
+            {% endif %}
+            <em>"{{ movie.tagline }}"</em>
+            <table>
+                <tr>
+                    <td>Runtime</td>
+                    <td>{{ movie.runtime }} minutes</td>
+                </tr>
+                <tr>
+                    <td>Release Date</td>
+                    <td>{{ movie.release_date|naturalday }}</td>
+                </tr>
+                <tr>
+                    <td>Budget</td>
+                    <td>${{ movie.budget|intcomma }}</td>
+                </tr>
+                <tr>
+                    <td>Revenue</td>
+                    <td>${{ movie.revenue|intcomma }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="nine columns">
+            <h3>{{ movie.title }}</h3>
+            <hr />
+            <p>{{ movie.overview }}</p>
+        </div>
+    </div>
+{% endblock %}
