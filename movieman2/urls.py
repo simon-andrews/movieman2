@@ -1,13 +1,9 @@
-from django.conf.urls import include, url
-from django.contrib import admin
+from django.conf.urls import patterns, url
 
-from moviemanager import urls as moviemanager_urls
+from . import views
 
-urlpatterns = [
-    # Examples:
-    # url(r'^$', 'movieman2.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^movieman/', include(moviemanager_urls))
-]
+urlpatterns = patterns(
+    '',
+    url(r'^add_movies/(?P<movie_title>.*)$', views.add_movies, name="add_movies"),
+    url(r'^list_saved_movies$', views.list_saved_movies, name="list_saved_movies"),
+)
