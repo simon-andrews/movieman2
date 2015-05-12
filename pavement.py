@@ -59,7 +59,7 @@ def setup():
 @task
 def sort_imports():
     """Sort imports with isort"""
-    sh("isort -rc .")
+    sh("isort -rc . --skip run_tests.py")
 
 
 @task
