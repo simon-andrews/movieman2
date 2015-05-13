@@ -1,7 +1,11 @@
 import tmdbsimple as tmdb
-from django.shortcuts import render_to_response
+from django.shortcuts import redirect, render_to_response
 
 from .models import Movie
+
+
+def index(request):
+    return redirect(list_saved_movies)
 
 
 def add_movies(request, movie_title):
