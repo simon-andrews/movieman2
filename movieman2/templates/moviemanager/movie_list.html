@@ -5,6 +5,7 @@
 <link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
 {% endblock %}
 {% block content %}
+    {% if movies %}
     {% for movie in movies %}
         <div class="row">
             <div class="two columns">
@@ -27,4 +28,7 @@
             </div>
         </div>
     {% endfor %}
+    {% else %}
+        <p>No movies found! :(</p>
+    {% endif %}
 {% endblock %}
