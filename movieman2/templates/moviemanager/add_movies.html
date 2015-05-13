@@ -2,7 +2,7 @@
 {% load humanize %}
 {% block pagetitle %}Add Movies{% endblock %}
 {% block movie_info %}
-    <strong>{{ movie.title }}</strong><br />
+    <a href="{% url 'show_movie' movie.id %}"><strong>{{ movie.title }}</strong></a><br />
     {{ movie.vote_average }}/10.0 ({{ movie.vote_count }} votes)<br />
     Release date: {{ movie.release_date|naturalday }}<br />
     #{{ movie.id|intcomma }}
