@@ -19,7 +19,7 @@ Install the following tools; they will save you from a lot of headaches:
  * isort
 
 ###Git Hooks
-MovieMan has a pre-commit git hooks to help you make sure that your pull request won't fail the CI build. You can install it in two different ways:
+MovieMan has a pre-commit git hook to help you make sure that your pull request won't fail the CI build. You can install it in two different ways:
 
  * Manually copy it from the git_hooks folder into .git/hooks and mark it as executable
  * Let `paver apply_hooks` handle it all for you!
@@ -35,7 +35,7 @@ MovieMan makes extensive use of [Paver](https://github.com/paver/paver) for auto
 | `lint` | Check code style of the project. |
 | `make_hooks_executable` | Goes into your git hooks directory and makes all the files there executable. |
 | `pre_commit` | Task run before every commit. |
-| `setup` | Makes project (almost) ready to roll. You will still need to configure your config.py. |
+| `setup` | Makes development environment ready to roll. |
 | `sort_imports` | Sort Python imports in the entire project. |
 | `test` | Run unit tests. |
 
