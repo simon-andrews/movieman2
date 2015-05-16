@@ -8,7 +8,7 @@ from django.db import models
 class Movie(models.Model):
     # General
     tmdb_id = models.IntegerField(unique=True)
-    score = models.IntegerField(default=10)  # Every movie starts with a score of ten (may be changed later)
+    score = models.IntegerField(default=1)  # Every movie starts with a score of one (may be changed later)
     submitter = models.ForeignKey(User)
 
     # Movie metadata
