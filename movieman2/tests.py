@@ -1,16 +1,16 @@
 import datetime
 
+import tmdbsimple as tmdb
 from django.contrib.auth.models import User
 from django.test import TestCase
 
-import tmdbsimple as tmdb
 from .models import Movie
 
 
 class MovieTestCase(TestCase):
     def setUp(self):
-        User.objects.create(username="test_user", password="pass", email="test@user.tld", first_name="Test",
-                            last_name="User")
+        User.objects.create(username="movie_test_case", password="pass", email="movie@test_case.tld",
+                            first_name="Movie", last_name="TestCase")
 
     def test_can_create_movie(self):
         """Can movies be created in the database?"""
