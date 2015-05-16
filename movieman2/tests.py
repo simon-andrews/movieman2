@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 
 from .models import Movie
+from .select_movie import (plain_random, rank_order, select_movie,
+                           weighted_random)
 
 
 class MovieTestCase(TestCase):
@@ -26,3 +28,27 @@ class MovieTestCase(TestCase):
     def test_can_create_movie_from_id(self):
         """Does Movie.add_from_id work?"""
         Movie.add_from_id(550, User.objects.first())
+
+
+class MovieSelectionTestCase(TestCase):
+    movie_list = None
+
+    def setUp(self):
+        User.objects.create(username="movie_selection_test_case", password="pass",
+                            email="movie@selection_test_case.tld", first_name="MovieSelection", last_name="TestCase")
+        self.movie_list = Movie.objects.all()
+        Movie.add_from_id(550, User.objects.first())
+        Movie.add_from_id(551, User.objects.first())
+        Movie.add_from_id(552, User.objects.first())
+
+    def test_can_select_movie(self):
+        select_movie(self.movie_list)
+
+    def test_can_select_movie_plain_random(self):
+        select_movie(self.movie_list, selection_method=plain_random)
+
+    def test_can_select_movie_weighted_random(self):
+        select_movie(self.movie_list, selection_method=weighted_random)
+
+    def test_can_select_movie_rank_order(self):
+        select_movie(self.movie_list, selection_method=rank_order)
