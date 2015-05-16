@@ -10,7 +10,11 @@ def rank_order(movie_list):
 
 
 def weighted_random(movie_list):
-    pass  # TODO: implement
+    x = []
+    for movie in movie_list:
+        for s in range(0, movie.score):
+            x.append(s)
+    return random.SystemRandom().choice(x)
 
 
 def select_movie(movie_list, selection_method=plain_random):
