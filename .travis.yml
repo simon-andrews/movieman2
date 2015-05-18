@@ -13,6 +13,8 @@ install:
 script:
 - paver inspect
 - paver test
+
+after_success:
 - python setup.py sdist
 
 env:
