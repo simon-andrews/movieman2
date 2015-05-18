@@ -5,8 +5,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 
 from .models import Movie
-from .select_movie import (plain_random, rank_order, select_movie,
-                           weighted_random)
+from .select_movie import plain_random, rank_order, select_movie, weighted_random
 
 
 class MovieTestCase(TestCase):
