@@ -5,6 +5,8 @@
 <link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
 {% endblock %}
 {% block content %}
+    {% block before_movies %}
+    {% endblock %}
     {% if movies %}
     {% for movie in movies %}
         <div class="row">

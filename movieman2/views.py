@@ -20,8 +20,12 @@ def add_movies(request, movie_title):
 
 def list_saved_movies(request):
     # TODO: Paginator
+    if request.GET.get('q'):
+        m = Movie.objects.filter(title__icontains=request.GET['q'])
+    else:
+        m = Movie.objects.all()
     dictionary = {
-        "movies": Movie.objects.all()
+        "movies": m
     }
     return render_to_response("moviemanager/list_saved_movies.html", dictionary=dictionary)
 

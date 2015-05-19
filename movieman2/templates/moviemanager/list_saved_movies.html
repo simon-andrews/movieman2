@@ -1,6 +1,11 @@
 {% extends "moviemanager/movie_list.html" %}
 {% load humanize %}
 {% block pagetitle %}Saved Movies{% endblock %}
+{% block before_movies %}
+    <form method="get" action="{% url 'list_saved_movies' %}">
+        <input class="u-full-width" placeholder="What tickles your fancy today...?" name="q" type="search">
+    </form>
+{% endblock %}
 {% block movie_info %}
     <a href="{% url 'show_movie' movie.tmdb_id %}"><strong>{{ movie.title }}</strong> <em>{{ movie.score }}</em></a><br />
     {{ movie.vote_average }}/10.0 ({{ movie.vote_count }} votes)<br />
