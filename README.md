@@ -27,15 +27,15 @@ MovieMan has a pre-commit git hook to help you make sure that your pull request 
 ##Paver Commands
 MovieMan makes extensive use of [Paver](https://github.com/paver/paver) for automation of various development-related tasks. These are the commands that are currently built into the `pavement.py` file:
 
-| Command | Description |
-|---------|-------------|
-| `apply_hooks` | Apply all the hooks from the git_hooks directory. |
-| `copy_hooks` | Copy files from git_hooks directory into .git/hooks. |
-| `inspect` | Checks over the project. |
-| `lint` | Check code style of the project. |
+| Command                 | Description                                                                  |
+|-------------------------|------------------------------------------------------------------------------|
+| `apply_hooks`           | Apply all the hooks from the git_hooks directory.                            |
+| `copy_hooks`            | Copy files from git_hooks directory into .git/hooks.                         |
+| `inspect`               | Checks over the project.                                                     |
+| `lint`                  | Check code style of the project.                                             |
 | `make_hooks_executable` | Goes into your git hooks directory and makes all the files there executable. |
-| `pre_commit` | Task run before every commit. |
-| `setup` | Makes development environment ready to roll. |
-| `sort_imports` | Sort Python imports in the entire project. |
-| `test` | Run unit tests. |
+| `pre_commit`            | Task run before every commit.                                                |
+| `setup`                 | Makes development environment ready to roll.                                 |
+| `sort_imports`          | Sort Python imports in the entire project.                                   |
+| `test`                  | Run unit tests.                                                              |
 
