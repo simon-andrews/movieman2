@@ -5,9 +5,9 @@
     <div class="row">
         <div class="three columns">
             {% if movie.poster_path %}
-                <img src="//image.tmdb.org/t/p/w396{{ movie.poster_path }}" width="100%">
+                <img src="//image.tmdb.org/t/p/w396{{ movie.poster_path }}" class="u-max-full-width">
             {% else %}
-                <img src="//i.imgur.com/oAOmgZs.jpg" width="100%"> <!-- TODO: Better solution -->
+                <img src="//i.imgur.com/oAOmgZs.jpg" class="u-max-full-width"> <!-- TODO: Better solution -->
             {% endif %}
             <em>"{{ movie.tagline }}"</em>
             <table>

@@ -14,15 +14,15 @@
                 {% if movie.poster_path %}
                     {% if movie.adult %}
                         <a href="//image.tmdb.org/t/p/w396{{ movie.poster_path }}" data-lightbox="adult-movie-cover" data-title="{{ movie.title }}">
-                            <img src="//i.imgur.com/QyLGEaZ.jpg" width="100%">
+                            <img src="//i.imgur.com/QyLGEaZ.jpg" class="u-max-full-width">
                         </a>
                     {% else %}
                         <a href="//image.tmdb.org/t/p/w396{{ movie.poster_path }}" data-lightbox="movie-cover" data-title="{{ movie.title }}">
-                            <img src="//image.tmdb.org/t/p/w185{{ movie.poster_path }}" width="100%">
+                            <img src="//image.tmdb.org/t/p/w185{{ movie.poster_path }}" class="u-max-full-width">
                         </a>
                     {% endif %}
                 {% else %}
-                    <img width="100%" src="//i.imgur.com/oAOmgZs.jpg"> <!-- TODO: Better solution -->
+                    <img src="//i.imgur.com/oAOmgZs.jpg" class="u-max-full-width"> <!-- TODO: Better solution -->
                 {% endif %}
             </div>
             <div class="ten columns">
