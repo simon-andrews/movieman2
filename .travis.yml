@@ -2,10 +2,7 @@ language: python
 
 python:
 - '2.7'
-- '3.2'
-- '3.3'
 - '3.4'
-- 'nightly'
 
 install:
 - pip install ${DJANGO} Paver flake8 tmdbsimple
@@ -23,10 +20,3 @@ env:
   matrix:
     - DJANGO="Django>=1.7,<1.8"
     - DJANGO="Django>=1.8,<1.9"
-
-matrix:
-  allow_failures:
-  - python: 'nightly'
-  exclude:
-  - python: 'nightly'
-    env: DJANGO="Django>=1.7,<1.8" # http://www.thefourtheye.in/2015/02/python-35-and-django-17s-htmlparseerror.html
